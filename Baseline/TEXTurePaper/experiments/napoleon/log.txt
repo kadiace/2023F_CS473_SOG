@@ -1,0 +1,138 @@
+2023-10-06 11:31:32 running xatlas to unwrap UVs for mesh: v={v_np.shape} f={f_np.shape}
+2023-10-06 11:32:35 Loaded Mesh, #parameters: 6337536
+2023-10-06 11:32:35 TexturedMeshModel()
+2023-10-06 11:32:35 try to load hugging face access token from the default place, make sure you have run `huggingface-cli login`.
+2023-10-06 11:32:35 loading stable diffusion with stabilityai/stable-diffusion-2-depth...
+2023-10-06 11:32:50 	 successfully loaded stable diffusion!
+2023-10-06 11:32:50 A photo of Napoleon Bonaparte, front view
+2023-10-06 11:32:50 None
+2023-10-06 11:32:50 ['A photo of Napoleon Bonaparte, front view']
+2023-10-06 11:32:50 tensor([[49406,   320,  1125,   539, 24969,  1871,  9161,   756,   267,  2184,
+          1093, 49407,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0]])
+2023-10-06 11:32:51 A photo of Napoleon Bonaparte, left view
+2023-10-06 11:32:51 None
+2023-10-06 11:32:51 ['A photo of Napoleon Bonaparte, left view']
+2023-10-06 11:32:51 tensor([[49406,   320,  1125,   539, 24969,  1871,  9161,   756,   267,  1823,
+          1093, 49407,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0]])
+2023-10-06 11:32:51 A photo of Napoleon Bonaparte, back view
+2023-10-06 11:32:51 None
+2023-10-06 11:32:51 ['A photo of Napoleon Bonaparte, back view']
+2023-10-06 11:32:51 tensor([[49406,   320,  1125,   539, 24969,  1871,  9161,   756,   267,   893,
+          1093, 49407,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0]])
+2023-10-06 11:32:51 A photo of Napoleon Bonaparte, right view
+2023-10-06 11:32:51 None
+2023-10-06 11:32:51 ['A photo of Napoleon Bonaparte, right view']
+2023-10-06 11:32:51 tensor([[49406,   320,  1125,   539, 24969,  1871,  9161,   756,   267,  1155,
+          1093, 49407,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0]])
+2023-10-06 11:32:51 A photo of Napoleon Bonaparte, overhead view
+2023-10-06 11:32:51 None
+2023-10-06 11:32:51 ['A photo of Napoleon Bonaparte, overhead view']
+2023-10-06 11:32:51 tensor([[49406,   320,  1125,   539, 24969,  1871,  9161,   756,   267, 20321,
+          1093, 49407,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0]])
+2023-10-06 11:32:51 A photo of Napoleon Bonaparte, bottom view
+2023-10-06 11:32:51 None
+2023-10-06 11:32:51 ['A photo of Napoleon Bonaparte, bottom view']
+2023-10-06 11:32:51 tensor([[49406,   320,  1125,   539, 24969,  1871,  9161,   756,   267,  5931,
+          1093, 49407,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+             0,     0,     0,     0,     0,     0,     0]])
+2023-10-06 11:32:51 phis: [0.0, 45.0, 315.0, 90.0, 270.0, 135.0, 225.0, 180.0]
+2023-10-06 11:32:51 Successfully initialized napoleon
+2023-10-06 11:32:51 Starting training ^_^
+2023-10-06 11:32:51 Evaluating and saving model, painting iteration #0...
+2023-10-06 11:32:55 Done!
+2023-10-06 11:32:55 --- Painting step #1 ---
+2023-10-06 11:32:55 Painting from theta: 1.0471975803375244, phi: 0.0, radius: 1.5
+2023-10-06 11:32:55 text: A photo of Napoleon Bonaparte, front view
+2023-10-06 11:33:05 Evaluating and saving model, painting iteration #1...
+2023-10-06 11:33:09 Done!
+2023-10-06 11:33:09 --- Painting step #2 ---
+2023-10-06 11:33:09 Painting from theta: 1.0471975803375244, phi: 0.7853981852531433, radius: 1.5
+2023-10-06 11:33:09 text: A photo of Napoleon Bonaparte, left view
+2023-10-06 11:33:17 Evaluating and saving model, painting iteration #2...
+2023-10-06 11:33:20 Done!
+2023-10-06 11:33:20 --- Painting step #3 ---
+2023-10-06 11:33:20 Painting from theta: 1.0471975803375244, phi: 5.497786998748779, radius: 1.5
+2023-10-06 11:33:21 text: A photo of Napoleon Bonaparte, right view
+2023-10-06 11:33:29 Evaluating and saving model, painting iteration #3...
+2023-10-06 11:33:32 Done!
+2023-10-06 11:33:32 --- Painting step #4 ---
+2023-10-06 11:33:32 Painting from theta: 1.0471975803375244, phi: 1.5707963705062866, radius: 1.5
+2023-10-06 11:33:32 text: A photo of Napoleon Bonaparte, left view
+2023-10-06 11:33:40 Evaluating and saving model, painting iteration #4...
+2023-10-06 11:33:43 Done!
+2023-10-06 11:33:43 --- Painting step #5 ---
+2023-10-06 11:33:43 Painting from theta: 1.0471975803375244, phi: 4.71238899230957, radius: 1.5
+2023-10-06 11:33:44 text: A photo of Napoleon Bonaparte, right view
+2023-10-06 11:33:52 Evaluating and saving model, painting iteration #5...
+2023-10-06 11:33:55 Done!
+2023-10-06 11:33:55 --- Painting step #6 ---
+2023-10-06 11:33:55 Painting from theta: 1.0471975803375244, phi: 2.356194496154785, radius: 1.5
+2023-10-06 11:33:55 text: A photo of Napoleon Bonaparte, left view
+2023-10-06 11:34:03 Evaluating and saving model, painting iteration #6...
+2023-10-06 11:34:07 Done!
+2023-10-06 11:34:07 --- Painting step #7 ---
+2023-10-06 11:34:07 Painting from theta: 1.0471975803375244, phi: 3.9269907474517822, radius: 1.5
+2023-10-06 11:34:07 text: A photo of Napoleon Bonaparte, right view
+2023-10-06 11:34:15 Evaluating and saving model, painting iteration #7...
+2023-10-06 11:34:18 Done!
+2023-10-06 11:34:18 --- Painting step #8 ---
+2023-10-06 11:34:18 Painting from theta: 1.0471975803375244, phi: 3.1415927410125732, radius: 1.5
+2023-10-06 11:34:19 text: A photo of Napoleon Bonaparte, back view
+2023-10-06 11:34:27 Evaluating and saving model, painting iteration #8...
+2023-10-06 11:34:30 Done!
+2023-10-06 11:34:30 --- Painting step #9 ---
+2023-10-06 11:34:30 Painting from theta: 0.5235987901687622, phi: 3.1415927410125732, radius: 1.5
+2023-10-06 11:34:30 text: A photo of Napoleon Bonaparte, overhead view
+2023-10-06 11:34:38 Evaluating and saving model, painting iteration #9...
+2023-10-06 11:34:41 Done!
+2023-10-06 11:34:41 --- Painting step #10 ---
+2023-10-06 11:34:41 Painting from theta: 2.6179938316345215, phi: 3.1415927410125732, radius: 1.5
+2023-10-06 11:34:42 text: A photo of Napoleon Bonaparte, bottom view
+2023-10-06 11:34:50 Evaluating and saving model, painting iteration #10...
+2023-10-06 11:34:53 Done!
+2023-10-06 11:34:53 Finished Painting ^_^
+2023-10-06 11:34:53 Saving the last result...
+2023-10-06 11:34:53 Evaluating and saving model, painting iteration #10...
+2023-10-06 11:35:24 Done!
+2023-10-06 11:35:24 Saving mesh to experiments/napoleon/mesh
+2023-10-06 11:35:24 writing obj mesh to {obj_file}
+2023-10-06 11:35:24 writing vertices {v_np.shape}
+2023-10-06 11:35:25 writing vertices texture coords {vt_np.shape}
+2023-10-06 11:35:25 writing faces {f_np.shape}
+2023-10-06 11:35:26 	Done!
+2023-10-06 11:35:26 	Done!
