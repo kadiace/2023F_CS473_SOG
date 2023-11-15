@@ -1,0 +1,16 @@
+**/__pycache__
+
+
+# Text2Tex
+Text2Tex/outputs/
+Text2Tex/data/objaverse/
+
+# TEXTure
+**/.ipynb_checkpoints
+*.mp4
+*.npy
+*.npz
+*.dae
+TEXTure/data/*
+TEXTure/logs/*
+TEXTure/.idea
