@@ -1,9 +1,8 @@
 **/__pycache__
 
-
 # Text2Tex
-Text2Tex/outputs/
-Text2Tex/data/objaverse/
+Baseline/Text2Tex/outputs/
+Baseline/Text2Tex/data/objaverse/
 
 # TEXTure
 **/.ipynb_checkpoints
@@ -11,6 +10,6 @@ Text2Tex/data/objaverse/
 *.npy
 *.npz
 *.dae
-TEXTure/data/*
-TEXTure/logs/*
-TEXTure/.idea
+Baseline/TEXTure/data/*
+Baseline/TEXTure/logs/*
+Baseline/TEXTure/.idea
