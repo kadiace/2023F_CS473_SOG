@@ -71,6 +71,8 @@ if __name__=="__main__":
     objaverse_subdata_location = "../Baseline/Text2Tex/data/objaverse"
     objaverse_real_data_location = "/root/.objaverse/hf-objaverse-v1/glbs"
     
+    actual_data = 0
+    
     for data_id in os.listdir(objaverse_subdata_location):
         glb_file_path = glob.glob(f"{objaverse_real_data_location}/**/{data_id}.glb")
         if not glb_file_path:
@@ -116,29 +118,42 @@ if __name__=="__main__":
         depth_map_dir = os.path.join(generate_dir, "depth")
         os.makedirs(depth_map_dir, exist_ok=True)
         
+        error_occur = False
+        
         for view_idx in range(len(dist_list)):
 
             # sequentially pop the viewpoints
             dist, elev, azim, sector = dist_list[view_idx], elev_list[view_idx], azim_list[view_idx], sector_list[view_idx]
             
-            (
-                cameras, renderer,
-                init_images_tensor, normal_maps_tensor, similarity_tensor, depth_maps_tensor, fragments
-            ) = render_one_view(mesh,
-                dist, elev, azim,
-                768, 1, DEVICE)
-        
-            init_image = init_images_tensor[0].cpu()
-            init_image = init_image.permute(2, 0, 1)
-            init_image = transforms.ToPILImage()(init_image).convert("RGB")
+            try:
+                (
+                    cameras, renderer,
+                    init_images_tensor, normal_maps_tensor, similarity_tensor, depth_maps_tensor, fragments
+                ) = render_one_view(mesh,
+                    dist, elev, azim,
+                    768, 1, DEVICE)
+                
+                init_image = init_images_tensor[0].cpu()
+                init_image = init_image.permute(2, 0, 1)
+                init_image = transforms.ToPILImage()(init_image).convert("RGB")
 
-            normal_map = normal_maps_tensor[0].cpu()
-            normal_map = normal_map.permute(2, 0, 1)
-            normal_map = transforms.ToPILImage()(normal_map).convert("RGB")
+                normal_map = normal_maps_tensor[0].cpu()
+                normal_map = normal_map.permute(2, 0, 1)
+                normal_map = transforms.ToPILImage()(normal_map).convert("RGB")
 
-            depth_map = depth_maps_tensor[0].cpu().numpy()
-            depth_map = Image.fromarray(depth_map).convert("L")
+                depth_map = depth_maps_tensor[0].cpu().numpy()
+                depth_map = Image.fromarray(depth_map).convert("L")
+                
+                init_image.save(os.path.join(init_image_dir, "{}.png".format(view_idx)))
+                normal_map.save(os.path.join(normal_map_dir, "{}.png".format(view_idx)))
+                depth_map.save(os.path.join(depth_map_dir, "{}.png".format(view_idx)))
+
+            except Exception as e:
+                print(f"{data_id} error occur! : {e}")
+                error_occur = True
+                break
+        if not error_occur:
+            actual_data += 1
+    print(f"actual_data : {actual_data}")
+
             
-            init_image.save(os.path.join(init_image_dir, "{}.png".format(view_idx)))
-            normal_map.save(os.path.join(normal_map_dir, "{}.png".format(view_idx)))
-            depth_map.save(os.path.join(depth_map_dir, "{}.png".format(view_idx)))
