@@ -30,8 +30,8 @@ class cubemap_mip(torch.autograd.Function):
         out = torch.zeros(6, res, res, dout.shape[-1], dtype=torch.float32, device="cuda")
         for s in range(6):
             gy, gx = torch.meshgrid(torch.linspace(-1.0 + 1.0 / res, 1.0 - 1.0 / res, res, device="cuda"), 
-                                    torch.linspace(-1.0 + 1.0 / res, 1.0 - 1.0 / res, res, device="cuda"),
-                                    indexing='ij')
+                                    torch.linspace(-1.0 + 1.0 / res, 1.0 - 1.0 / res, res, device="cuda")
+                                   )
             v = util.safe_normalize(util.cube_to_dir(s, gx, gy))
             out[s, ...] = dr.texture(dout[None, ...] * 0.25, v[None, ...].contiguous(), filter_mode='linear', boundary_mode='cube')
         return out
@@ -49,7 +49,7 @@ class EnvironmentLight(torch.nn.Module):
     def __init__(self, base):
         super(EnvironmentLight, self).__init__()
         self.mtx = None      
-        self.base = torch.nn.Parameter(base.clone().detach(), requires_grad=True)
+        self.base = torch.nn.Parameter(base.clone().detach(), requires_grad=False)
         self.register_parameter('env_base', self.base)
 
     def xfm(self, mtx):

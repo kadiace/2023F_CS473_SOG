@@ -104,8 +104,8 @@ def latlong_to_cubemap(latlong_map, res):
     cubemap = torch.zeros(6, res[0], res[1], latlong_map.shape[-1], dtype=torch.float32, device='cuda')
     for s in range(6):
         gy, gx = torch.meshgrid(torch.linspace(-1.0 + 1.0 / res[0], 1.0 - 1.0 / res[0], res[0], device='cuda'), 
-                                torch.linspace(-1.0 + 1.0 / res[1], 1.0 - 1.0 / res[1], res[1], device='cuda'),
-                                indexing='ij')
+                                torch.linspace(-1.0 + 1.0 / res[1], 1.0 - 1.0 / res[1], res[1], device='cuda')
+                                )
         v = safe_normalize(cube_to_dir(s, gx, gy))
 
         tu = torch.atan2(v[..., 0:1], -v[..., 2:3]) / (2 * np.pi) + 0.5
@@ -117,8 +117,8 @@ def latlong_to_cubemap(latlong_map, res):
 
 def cubemap_to_latlong(cubemap, res):
     gy, gx = torch.meshgrid(torch.linspace( 0.0 + 1.0 / res[0], 1.0 - 1.0 / res[0], res[0], device='cuda'), 
-                            torch.linspace(-1.0 + 1.0 / res[1], 1.0 - 1.0 / res[1], res[1], device='cuda'),
-                            indexing='ij')
+                            torch.linspace(-1.0 + 1.0 / res[1], 1.0 - 1.0 / res[1], res[1], device='cuda')
+                            )
     
     sintheta, costheta = torch.sin(gy*np.pi), torch.cos(gy*np.pi)
     sinphi, cosphi     = torch.sin(gx*np.pi), torch.cos(gx*np.pi)
@@ -229,12 +229,38 @@ def rotate_x(a, device=None):
                          [0, -s, c, 0], 
                          [0,  0, 0, 1]], dtype=torch.float32, device=device)
 
+def rotate_x_1(a, device=None):
+    s, c = np.sin(a), np.cos(a)
+    return torch.tensor([[1,  0, 0], 
+                         [0,  c, s], 
+                         [0, -s, c]], dtype=torch.float32, device=device)
+                         
+
 def rotate_y(a, device=None):
     s, c = np.sin(a), np.cos(a)
     return torch.tensor([[ c, 0, s, 0], 
                          [ 0, 1, 0, 0], 
                          [-s, 0, c, 0], 
                          [ 0, 0, 0, 1]], dtype=torch.float32, device=device)
+
+def rotate_y_1(a, device=None):
+    s, c = np.sin(a), np.cos(a)
+    return torch.tensor([[ c, 0, s], 
+                         [ 0, 1, 0], 
+                         [-s, 0, c]], dtype=torch.float32, device=device)
+
+def rotate_y_2(a, device=None):
+    s, c = np.sin(a), np.cos(a)
+    return np.array([[ c, 0, s], 
+                         [ 0, 1, 0], 
+                         [-s, 0, c]])
+    
+def rotate_x_2(a, device=None):
+    s, c = np.sin(a), np.cos(a)
+    return np.array([[1,  0, 0], 
+                         [0,  c, s], 
+                         [0, -s, c]])
+                         
 
 def scale(s, device=None):
     return torch.tensor([[ s, 0, 0, 0], 
@@ -435,7 +461,12 @@ def save_image_raw(fn, x : np.ndarray):
 
 
 def load_image_raw(fn) -> np.ndarray:
-    return imageio.imread(fn)
+    extension = os.path.splitext(fn)[1]
+    if extension == ".hdr":
+        imageio.plugins.freeimage.download()
+        return imageio.imread(fn, format='HDR-FI')
+    else:
+        return imageio.imread(fn)
 
 def load_image(fn) -> np.ndarray:
     img = load_image_raw(fn)

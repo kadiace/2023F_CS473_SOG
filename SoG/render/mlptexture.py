@@ -27,8 +27,8 @@ class _MLP(torch.nn.Module):
         
         self.net.apply(self._init_weights)
         
-        if self.loss_scale != 1.0:
-            self.net.register_full_backward_hook(lambda module, grad_i, grad_o: (grad_i[0] * self.loss_scale, ))
+        # if self.loss_scale != 1.0:   x.to(torch.float32)
+        #     self.net.register_full_backward_hook(lambda module, grad_i, grad_o: (grad_i[0] * self.loss_scale, ))
 
     def forward(self, x):
         return self.net(x.to(torch.float32))
@@ -45,7 +45,7 @@ class _MLP(torch.nn.Module):
 #######################################################################################################################################################
 
 class MLPTexture3D(torch.nn.Module):
-    def __init__(self, AABB, channels = 3, internal_dims = 32, hidden = 2, min_max = None):
+    def __init__(self, AABB, channels = 3, internal_dims = 32, hidden = 1, min_max = None):
         super(MLPTexture3D, self).__init__()
 
         self.channels = channels
@@ -68,9 +68,8 @@ class MLPTexture3D(torch.nn.Module):
             "per_level_scale" : per_level_scale
 	    }
 
-        gradient_scaling = 128.0
+        gradient_scaling = 1 #128
         self.encoder = tcnn.Encoding(3, enc_cfg)
-        self.encoder.register_full_backward_hook(lambda module, grad_i, grad_o: (grad_i[0] / gradient_scaling, ))
 
         # Setup MLP
         mlp_cfg = {
@@ -80,7 +79,6 @@ class MLPTexture3D(torch.nn.Module):
             "n_neurons" : self.internal_dims
         }
         self.net = _MLP(mlp_cfg, gradient_scaling)
-        print("Encoder output: %d dims" % (self.encoder.n_output_dims))
 
     # Sample texture at a given location
     def sample(self, texc):
