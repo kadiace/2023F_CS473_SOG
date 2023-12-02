@@ -17,8 +17,4 @@ Baseline/TEXTurePaper/experiments
 Baseline/TEXTurePaper/cache
 
 # SoG
-SoG/.idea
-SoG/data/*
-SoG/logs/*
-SoG/experiments
-SoG/cache
+SoG/out
