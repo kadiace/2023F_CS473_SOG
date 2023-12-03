@@ -1,5 +1,5 @@
 {
-"base_mesh": "data/mesh/pineapple/mesh.obj",
+"base_mesh": "data/mesh/Semi-trailer truck/mesh.obj",
 "random_textures": true,
 "iter": 2000,
 "coarse_iter": 300,
