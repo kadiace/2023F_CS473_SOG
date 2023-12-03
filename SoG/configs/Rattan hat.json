@@ -1,5 +1,5 @@
 {
-"base_mesh": "data/mesh/Rattan Hat/mesh.obj",
+"base_mesh": "data/mesh/Rattan hat/mesh.obj",
 "random_textures": true,
 "iter": 2000,
 "coarse_iter": 300,
@@ -16,8 +16,8 @@
 "env_scale" : 2.0,
 "train_background": "black",
 "validate" : true,
-"out_dir": "Rattan Hat",
-"text" : "Rattan Hat",
+"out_dir": "Rattan hat",
+"text" : "Rattan hat",
 "seed" : 42,
 "add_directional_text": true,
 "camera_random_jitter": 0.2,
