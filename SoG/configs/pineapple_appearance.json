@@ -1,5 +1,5 @@
 {
-    "base_mesh": "out/pineapple/dmtet_mesh/mesh.obj",
+    "base_mesh": "data/mesh/pineapple/mesh.obj",
     "random_textures": true,
     "iter": 2000,
     "coarse_iter": 300,
