@@ -1,5 +1,4 @@
 {
-    "mode": "appearance_modeling",
     "base_mesh": "out/pineapple/dmtet_mesh/mesh.obj",
     "random_textures": true,
     "iter": 2000,
